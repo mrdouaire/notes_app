@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Heading from "./Heading";
 
 function App() {
+  const [ color, setColor ] = React.useState( 'black' );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Heading title="To-Do App" color={ color }/>
+      <button
+        onClick={ () => {
+          const colors = [
+            'blue',
+            'red',
+            'green',
+            'yellow'
+          ];
+          const i = Math.floor(Math.random() * colors.length);
+          const selected = colors[ i ];
+          setColor( selected );
+        } }
+      >
+        Change Title Cover
+      </button>
     </div>
   );
 }
